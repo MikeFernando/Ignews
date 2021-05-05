@@ -19,3 +19,7 @@
 ## Commit
 * Adicionando sass e trocar extenção do arquivo scss
 * Adiconei .editorconfig
+
+* yarn add typescript @types/react @types/node -D
+* Mudar extensão para tsx
+
