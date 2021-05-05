@@ -27,9 +27,7 @@
 * _document é bem parecido com o _app, porém ele é criado somente uma vez
 * _document pode ser comparado com o arquivo index.html (porém ele não é html)
 
-## Commit
-* Criação do arquivo _Mydocument
-* Ele é em formato de class porque precisa extender Document
-* E importar Html, Head, Main = significa que to conteúdo da aplicação vai renderizado no main, 
-NextScript = é onde o next vai por os arquivos javascript pra ele funcionar
+## Resumo Commit
+* Head do next pode ser usado em qualquer lugar da aplicação
+* Ele serve ter titles dinâmicos por página
 
