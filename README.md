@@ -16,10 +16,20 @@
 * yarn add typescript @types/react(nessa versão o react não traz as tipagem typescript por padrão) @types/node -D
 * Mudar extensão para tsx
 
-## Commit
-* Adicionando sass e trocar extenção do arquivo scss
-* Adiconei .editorconfig
+## Adicionando SASS
+* yarn add sass
+* mudar extensão para scss
 
-* yarn add typescript @types/react @types/node -D
-* Mudar extensão para tsx
+## Explicação da aula
+* O arquivo _app fica por volta de toda a aplicação
+* Nele fica coisas que vão se repetir em várias páginas
+* Todo counteúdo dentro desse arquivo é recriado do zero toda vez que ele é renderizado
+* _document é bem parecido com o _app, porém ele é criado somente uma vez
+* _document pode ser comparado com o arquivo index.html (porém ele não é html)
+
+## Commit
+* Criação do arquivo _Mydocument
+* Ele é em formato de class porque precisa extender Document
+* E importar Html, Head, Main = significa que to conteúdo da aplicação vai renderizado no main, 
+NextScript = é onde o next vai por os arquivos javascript pra ele funcionar
 
