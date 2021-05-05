@@ -13,5 +13,5 @@
 * Todo arquivo dentro da pasta 'pages' é obrigatório exportar por default
 
 ## Adicionando typescript
-* yarn add typescript @types/react(nessa versão o react não traz as tipagem typescript por padrão) @types/node -D
+* yarn add typescript @types/react @types/node -D
 * Mudar extensão para tsx
