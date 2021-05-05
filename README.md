@@ -28,7 +28,7 @@
 * _document pode ser comparado com o arquivo index.html (porém ele não é html)
 
 ## Commit
-* Criação do arquivo _Mydocument
+* Criação do arquivo _MyDocument
 * Ele é em formato de class porque precisa extender Document
 * E importar Html, Head, Main = significa que to conteúdo da aplicação vai renderizado no main, 
 NextScript = é onde o next vai por os arquivos javascript pra ele funcionar
