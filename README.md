@@ -15,3 +15,7 @@
 ## Adicionando typescript
 * yarn add typescript @types/react(nessa versão o react não traz as tipagem typescript por padrão) @types/node -D
 * Mudar extensão para tsx
+
+## Commit
+* Adicionando sass e trocar extenção do arquivo scss
+* Adiconei .editorconfig
