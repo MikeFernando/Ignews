@@ -1,11 +1,12 @@
 # Componentes e páginas
-![](https://imgur.com/jejio7Q.png)
+
+![](https://imgur.com/gGu3Dxl.png)
 
 ## Resumo Commit
-* Importar imagens do figma para pasta public
-* Criar pasta componentes
-* Criação do componente Header e seu estilo
-* Importar no _app o Header
-* Adicionar o favicon no _document
+* Criação do componente SigninButton
+* Instalação do react-icons
+* Importar SigninButton no componente Header
+* Estilar o SigninButton
+
 
 
