@@ -14,7 +14,7 @@
 * Realizar a primeira chamada à api do stripe e obter as informações do produto
 * Aplicar (SSR) à chamadas HTTP não no browser, mas sim no server side rendering pra quando o next devolver a interface pronta pro browser ele ja tenha todos os dados da api.
 
-## Commit
+## Commit (SSR) Server Side Generation
 * Na página home exportar uma função assíncrona getServerSideProps
 * Tipagem da funcão com GetServerSideProps do next
 * Intalar o stripe
@@ -27,3 +27,10 @@
 * Na Home eu recebo o product por parâmetro
 * Criei uma interface tipando o product pra não ficar com 'any'
 * No retorno do Home usei as informações do product e formatei com Intl.numberFomat()
+
+# Commit (SSG) Static Site Generation
+* Usando SSR fazendo chamadas pra api, se tiver 1 milhão de acessos à página serão 1 milhão de requisições pra api
+* Com SSG o processo é muito semelhante ao SSR, ele faz a chamada a api gera o html e tudo mais, porém além
+de devolver pro browser ele também vai salvar esse html de forma estática contendo o resultado final gerado.
+* E retorna essa cópia em vez de fazer a chamada a api toda vez.
+* Com revalidate podemos definir quanto tempo em segundos essa página poderá ser exibida sem ser revalidada ou seja Reconstruída
