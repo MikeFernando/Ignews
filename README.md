@@ -10,6 +10,12 @@
    uma mudança no visual que fica perceptível pro usúaro, e isso não é bom em termos de UX. <br><br>
  2º O google não iria indexar o conteúdo da api, porque ele não espera essa chamada HTTP acontecer.
 
+ * (SSR e SSG) não substitue a chamada a api usando useEffect()
+ * Cada uma das 3 formas tem a sua particuliaridade
+ * Client Side = Para páginas que são geradas a partir da ação do usiário, e não precisa de indexação 
+ * Server Side Rendering = Precisa de indexação e de dados dinâmicos em tempo real, como sessão do usuário que ta acessando.
+ * Státic Site Generation = Para páginas que serão mostradas pra todos usuários e precisa de indexação, como produtos E-ecommerce, posts de blog etc...
+
 ## Resumo
 * Realizar a primeira chamada à api do stripe e obter as informações do produto
 * Aplicar (SSR) à chamadas HTTP não no browser, mas sim no server side rendering pra quando o next devolver a interface pronta pro browser ele ja tenha todos os dados da api.
@@ -34,3 +40,5 @@
 de devolver pro browser ele também vai salvar esse html de forma estática contendo o resultado final gerado.
 * E retorna essa cópia em vez de fazer a chamada a api toda vez.
 * Com revalidate podemos definir quanto tempo em segundos essa página poderá ser exibida sem ser revalidada ou seja Reconstruída
+* SSG é mais performático por se tratar de arquivo stático usado em páginas que são exibidas pra todos usuários
+* SSR tem a vantagem de ser dinâmico mostrando boas-vindas pra cada usuário por exemplo.
