@@ -18,5 +18,3 @@ e isso são coisas que não podem ficar no front-end da aplicação
 * Toda arquivo dentro da pasta ./api automaticamente se tornarm rotas da minha api
 * Dentro da ./api crio um arquivo users
 * Users é uma função anônima com request e response (que precisa ser tipado com NextApiRequest, NextApiResponse)
-* 
-
