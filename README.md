@@ -1,36 +1,22 @@
-# Componentes e páginas
+# API routes no Next.js
 
 ![](https://imgur.com/w8cFize.png)
 
-## Detalhes 
-* Toda chamada a api dentro de um componente usando o hook useEffect do React ela acontece no browser
-* Essa chamada só vai acontecer quando a página estiver pré montada, depois ela faz a chamada
-
- 1º A interface vai ser renderizada em um primeiro momento sem o preço, depois que a chamada terminar o preço vai ser preenchido, isso se chama 'layout shift' que significa
-   uma mudança no visual que fica perceptível pro usúaro, e isso não é bom em termos de UX. <br><br>
- 2º O google não iria indexar o conteúdo da api, porque ele não espera essa chamada HTTP acontecer.
-
 ## Resumo
-* Realizar a primeira chamada à api do stripe e obter as informações do produto
-* Aplicar (SSR) à chamadas HTTP não no browser, mas sim no server side rendering pra quando o next devolver a interface pronta pro browser ele ja tenha todos os dados da api.
+* Geralmente quando vamos fazer operações que requer um certo nível de segurança usamos o back-end (envio de email, comunicação com BD, autenticação etc...)
+e isso são coisas que não podem ficar no front-end da aplicação
+* Porque nunca as informações no front-end estão 100% seguras, nem utilizando a melhor criptocrafia. Se essa informação está no front-end então ela é publica
+* Nessa aplicação não vai ser criado um back-end, porque só o Next.js vai ser o suficiente.
 
-## Commit (SSR) Server Side Generation
-* Na página home exportar uma função assíncrona getServerSideProps
-* Tipagem da funcão com GetServerSideProps do next
-* Intalar o stripe
-* Criação da pasta 'services' com arquivo stripe.ts que vai definir a conexão com stripe (É uma SDK biblioteca pra lidar com stripe sem precisar fazer as requisiçoes usando HTTP).
-* No primeiro parâmetro preciso por a chave do stripe salva no arquivo .env.local
-* No segundo parâmetro um objeto com algumas informações obrigatórias.
-* Na função getServerSideProps busquei o preço  passando o 'id' do preço (esse id eu busco lá do site do stripe em produtos -> API ID)
-* Criei um objeto products e passei priceId e amount (no amount é sempre bom salvar ele em centavos dividindo ele por 100, assim ele sempre fica um numero inteiro mais facil de manipular)
-* E retornar nas props o obejto product
-* Na Home eu recebo o product por parâmetro
-* Criei uma interface tipando o product pra não ficar com 'any'
-* No retorno do Home usei as informações do product e formatei com Intl.numberFomat()
+## Detalhes importantes
+* Next.js não substitui um back-end, mas em alguns momenttos pra poucas funcionalidades, ou a aplicação tem um escopo muito fechado o next funciona muito bem.
+* Tudo que é executado na api routes não é acessível pelo browser
+* Então quando você traz operações de acesso aos dados para api routes do next, você está trazendo segurança pra aplicação
 
-# Commit (SSG) Static Site Generation
-* Usando SSR fazendo chamadas pra api, se tiver 1 milhão de acessos à página serão 1 milhão de requisições pra api
-* Com SSG o processo é muito semelhante ao SSR, ele faz a chamada a api gera o html e tudo mais, porém além
-de devolver pro browser ele também vai salvar esse html de forma estática contendo o resultado final gerado.
-* E retorna essa cópia em vez de fazer a chamada a api toda vez.
-* Com revalidate podemos definir quanto tempo em segundos essa página poderá ser exibida sem ser revalidada ou seja Reconstruída
+## Commit 
+* Dentro de ./pages crio uma pasta ./api
+* Toda arquivo dentro da pasta ./api automaticamente se tornarm rotas da minha api
+* Dentro da ./api crio um arquivo users
+* Users é uma função anônima com request e response (que precisa ser tipado com NextApiRequest, NextApiResponse)
+* 
+
