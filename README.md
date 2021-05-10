@@ -1,4 +1,4 @@
-# Parametrização nas rotas
+# Autenticação com Next Auth
 
 ![](https://imgur.com/SCWRj58.gif)
 
