@@ -1,10 +1,5 @@
 # Configurando FaunaDB
 
-# Autenticação com Next Auth
-
-![](https://imgur.com/SCWRj58.gif)
-
-
 ## Commit 
 * Criar conta no faunaDB
 * Salvar chave do banco de dados no .env.local
