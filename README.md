@@ -1,22 +1,22 @@
-# Parametrização nas rotas
+# Autenticação com Next Auth
 
-![](https://imgur.com/w8cFize.png)
-
-## Rota dinâmica
-* Quando queremos obter o parametro informado na rota é muito simples
-* Crio uma pasta por exemplo ./users
-* Nomeio o arquivo pra index (index é indentificado automaticamente como arquivo default)
+![](https://imgur.com/SCWRj58.gif)
 
 ## Commit 
-* Dentro de ./pages crio uma pasta ./api
-* Toda arquivo dentro da pasta ./api automaticamente se tornarm rotas da minha api
-* Dentro da ./api crio um arquivo users
-* Users é uma função anônima com request e response (que precisa ser tipado com NextApiRequest, NextApiResponse)
-<<<<<<< HEAD
-* Agora para buscar o id por parametro
-* Crio um arquivo com [id].tsx por volta
-* Para ter acesso ao id, basta destruturar { id } de dentro de request.query
-* id é o nome do parametro
-* Para retornar tudo depois de users nada rota, exemplo users/edit/banana
-* Basta nomear o arquivo [...params].tsx
-* Tudo vai ser repassado pra essa variável params (por causa do spread operator ...)
+* Dentro de ./pages crio pasta ./api
+* Dentro da ./api crio a pasta ./auth
+* Dentro de ./auth crio arquivo [...nextatuh].ts
+* instalo next-auth e suas tipagens @types/next-auth
+* Seguindo a documentação do next-auth preenchi as informações dos provedores.
+* GITHUB_CLIENT_ID e GITHUB_SECRET_KEY estão salvas no .env.local
+* 'read:user' é uma permição que concede acesso para ler informações de um perfil do usuário. 
+ ![](https://imgur.com/v0XyNBm.png)
+
+* No SigninButton que é o componente que faz o login e logout da aplicação
+* importei de dentro de next-auth/client a função signin e signout para chamar ela no onclick do botão.
+* Dentro de next-auth/client tambem importo um hook chamado useSession, ele retorna informações se o usuário está logado ou não.
+* Como ele retorna várias coisa eu desestruturo ele com [session] pegando somente o session
+* Uso esse session no if do retorno
+* Para que o next-auth funcione, precisamo entender que next-auth utiliza de contexto pra servir informações se o usuário está logado ou não
+* Então no arquivo _app.tsx que tem acesso a todos os componentes eu import de dentro de next-auth/client o nosso Provider (Sempre bom renomear o Provider com um nome específico, nesse caso 'NextAuthProvider' é um bom nome)
+* E joguei ele por volta dos outros componentes e passando pro NextAuthProvider uma propriedade chamada sesseion que recebe pageProps.session
