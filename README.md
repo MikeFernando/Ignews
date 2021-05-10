@@ -1,20 +1,25 @@
-# API routes no Next.js
+# Parametrização nas rotas
 
 ![](https://imgur.com/w8cFize.png)
 
-## Resumo
-* Geralmente quando vamos fazer operações que requer um certo nível de segurança usamos o back-end (envio de email, comunicação com BD, autenticação etc...)
-e isso são coisas que não podem ficar no front-end da aplicação
-* Porque nunca as informações no front-end estão 100% seguras, nem utilizando a melhor criptocrafia. Se essa informação está no front-end então ela é publica
-* Nessa aplicação não vai ser criado um back-end, porque só o Next.js vai ser o suficiente.
-
-## Detalhes importantes
-* Next.js não substitui um back-end, mas em alguns momenttos pra poucas funcionalidades, ou a aplicação tem um escopo muito fechado o next funciona muito bem.
-* Tudo que é executado na api routes não é acessível pelo browser
-* Então quando você traz operações de acesso aos dados para api routes do next, você está trazendo segurança pra aplicação
+## Rota dinâmica
+* Quando queremos obter o parametro informado na rota é muito simples
+* Crio uma pasta por exemplo ./users
+* Nomeio o arquivo pra index (index é indentificado automaticamente como arquivo default)
 
 ## Commit 
 * Dentro de ./pages crio uma pasta ./api
 * Toda arquivo dentro da pasta ./api automaticamente se tornarm rotas da minha api
 * Dentro da ./api crio um arquivo users
 * Users é uma função anônima com request e response (que precisa ser tipado com NextApiRequest, NextApiResponse)
+<<<<<<< HEAD
+* Agora para buscar o id por parametro
+* Crio um arquivo com [id].tsx por volta
+* Para ter acesso ao id, basta destruturar { id } de dentro de request.query
+* id é o nome do parametro
+* Para retornar tudo depois de users nada rota, exemplo users/edit/banana
+* Basta nomear o arquivo [...params].tsx
+* Tudo vai ser repassado pra essa variável params (por causa do spread operator ...)
+
+=======
+>>>>>>> 90edb0f7c5c78598d52171b1fc43abb3bc72a951
