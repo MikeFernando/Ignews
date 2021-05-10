@@ -20,6 +20,3 @@
 * Para retornar tudo depois de users nada rota, exemplo users/edit/banana
 * Basta nomear o arquivo [...params].tsx
 * Tudo vai ser repassado pra essa variável params (por causa do spread operator ...)
-
-=======
->>>>>>> 90edb0f7c5c78598d52171b1fc43abb3bc72a951
