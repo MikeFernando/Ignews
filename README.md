@@ -12,6 +12,7 @@
 * Toda arquivo dentro da pasta ./api automaticamente se tornarm rotas da minha api
 * Dentro da ./api crio um arquivo users
 * Users é uma função anônima com request e response (que precisa ser tipado com NextApiRequest, NextApiResponse)
+<<<<<<< HEAD
 * Agora para buscar o id por parametro
 * Crio um arquivo com [id].tsx por volta
 * Para ter acesso ao id, basta destruturar { id } de dentro de request.query
@@ -20,3 +21,5 @@
 * Basta nomear o arquivo [...params].tsx
 * Tudo vai ser repassado pra essa variável params (por causa do spread operator ...)
 
+=======
+>>>>>>> 90edb0f7c5c78598d52171b1fc43abb3bc72a951
