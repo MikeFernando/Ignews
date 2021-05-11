@@ -7,7 +7,7 @@
 ### Implementando
 * Dentro do objeto query
 * Todo If dentro do fauna precisa ter um else
-* Para fazer essas buscas sempre vamo utilizar os indexes para identificar os dados
+* Para fazer essas buscas é necessário utilizar os indexes para identificar os dados
 * Se <br>
  Não <br>
  Existe<br>
