@@ -34,9 +34,9 @@ a aplicação.
 * Os cookes podem ser acessado tanto na camada do front-end tanto no back-end que esteja no mesmo domínio
 * No Next.js difícilmente você utilizará o localstorage pra salvar informações do token do usuário, porque o localstorage só fica acessível no front-end.
 * Existe um método do next-auth/client chamado getSession
-* Esse getSession funciona da seguinte forma:<br>
+* Esse getSession funciona da seguinte forma:👇<br>
   ![Imgur](https://imgur.com/0q2nJ46.png)
-* Agora com acesso aos dados do usuário logado, crio um customers com stripe passando como propriedade obrigatória no objeto o email 👇<br>
+* Agora com acesso aos dados do usuário logado, crio um customers com stripe passando como propriedade obrigatória no objeto o email.
   ![Imgur](https://imgur.com/3wISD88.png)
 * No customer do checkout session eu passo o stripeCustomer.id
 * Retornei uma resposta pra essa rota com status 200, com um json passando sessionId: stripeCheckoutSession.id
