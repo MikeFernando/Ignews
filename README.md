@@ -1,15 +1,26 @@
-# Salvando usuário no banco
+# Verificando usuário duplicado
 
 ## Commit 
-* No arquivo [...nextauth].tsx adicionei o callbacks
-* Callbacks são funções executadas de forma automaticas pelo nextauth assim que acontece uma ação
-* Sempre que o usuário faz login a função callback é executada
-* Nesse callback temos acesso aos dados do usuário, e assim conseguimos inserir esses dados no BD.
+* Não criar um usuário que já existe no banco de dados
+* Como o fauna conta o numero de operações feitas no banco, reduzi para uma query só
+* Dentro do fauna a gente consegue ter muito controle sobre as operações que queremos fazer (If, For etc...) 
 ### Implementando
-* Importo fauna.ts de ./services
-* Importo { query as q } de dentro do faunadb (renomeio pra ser mais prático)
-* Faço a inserção no banco: 👇 <br>
-![](https://imgur.com/jOgpwnO.png)
+* Dentro do objeto query
+* Todo If dentro do fauna precisa ter um else
+* Para fazer essas buscas sempre vamo utilizar os indexes para identificar os dadod
+* Se <br>
+ Não <br>
+ Existe<br>
+ Match = pode ser comparado ao Where do SQL<br>
+ Index do email = referência ao dado<br>
+ CaseFold = normaliza os caracters em lowerscase<br>
+Eu: <br>
+Crio<br>
+Coleção de usuários, passando o email<br>
+* Então<br>
+Busco<br>
+Match<br>
+Index<br>
+Casefold<br>
 
-
-
+![](https://imgur.com/Xe1oooR.png)
