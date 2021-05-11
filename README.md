@@ -30,7 +30,7 @@ a aplicação.
    - cancel_url = pra onde ele tem que ser redirecionado quando cancela a requisição ( coloquei no .env.local)
 
 ## Acessando informações do usuário através dos cookes
-* Como o next-auth salva o token do usuário logado nos cookes
+* Next-auth salva o token do usuário logado nos cookes
 * Os cookes podem ser acessado tanto na camada do front-end tanto no back-end que esteja no mesmo domínio
 * No Next.js difícilmente você utilizará o localstorage pra salvar informações do token do usuário, porque o localstorage só fica acessível no front-end.
 * Existe um método do next-auth/client chamado getSession
