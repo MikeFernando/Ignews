@@ -8,9 +8,9 @@
 * Como a rota é do tipo POST, é necessário utilizar o fecth ou axios para fazer as chamadas(usei axios)
 
 ## Detalhes sobre Stripe
-* Ele tem 2 SKD pra javascript
-  - 1 pra lidar no back-end com a chave privada
-  - 1 pra lidar no front-end com as informações publicas
+* Ele tem duas SKD pra javascript
+  - Uma pra lidar no back-end com a chave privada
+  - Uma pra lidar no front-end com as informações publicas
 
 ## Commit 
 * Instalação do axios
