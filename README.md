@@ -23,7 +23,3 @@ eu crio um novo
 * Verifico se NÃO existe essa informação pra depois criar o customer e fazer a query
 * No retorno do if reatribuo a variável customerId pra stripeCustomer.id (Pra ela sempre ter um id)
 * Por fim no stripeCheckoutSession na propriedade customer: uso 'customerId'
-
-
-
-
