@@ -22,5 +22,3 @@
 * Exporto uma função getStripeJs que faz a conexão com stripe passando a chave publica salva no .env
 * No SubscribeButton importo a função getStripeJs e atribuo a variável stripe
 * Uso o método redirectiToCheckout passando por parâmetro o sessionId que vem do back-end
-
-
