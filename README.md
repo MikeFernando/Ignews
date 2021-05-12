@@ -1,26 +1,29 @@
-# Gerando sessão de checkout
+# Evitando duplicação no Stripe
 
 ![](https://imgur.com/teFKdXi.gif)
 
 ## Resumo
-* Redirecionamento do usuário quando ele clica em subscribe now para página de pagamento do stripe
-* Para isso precisa chamar aquela API routes subscribe feita no back-end do next
-* Como a rota é do tipo POST, é necessário utilizar o fecth ou axios para fazer as chamadas(usei axios)
+* Para evitar que o usuário seja duplicado no stripe é utilizar o banco de dados (faunaDB)
+* Quando criar o usuário pela primeira vez, eu vou salvar o id do stripe dele junto com as outras
+informações lá no banco faunaDB
+* Ai quando eu for cai denovo em subscribe eu apenas verifico se tem um usuário com aquele id, se não tiver 
+eu crio um novo
 
-## Detalhes sobre Stripe
-* Ele tem 2 SKD pra javascript
-  - 1 pra lidar no back-end com a chave privada
-  - 1 pra lidar no front-end com as informações publicas
+## Commit
+* Salvar o usuário no fauna quando criar ele
+* Importar {query as q} no subscribe e realizar uma query para atualizar (Porém não é possivel atualizar um usuário pelo index diretamente)
+* Então divido em duas querys: <br>
+  1º Eu busco o usuário 👇<br>
+  ![Imgur](https://imgur.com/gE6KGb4.png)<br>
+  2º Atualizo 👇<br>
+  ![Imgur](https://imgur.com/wwGkltI.png)
+* Porém ainda não estamos verificando se no faunaDB o usuário tem essa informação stripe_customer_id para não criar esse usuário denovo
+* Crio uma variável customerId passando a informação do stripe_customer_id<br>
+  ![Imgur](https://imgur.com/M0unJds.png)
+* Verifico se NÃO existe essa informação pra depois criar o customer e fazer a query
+* No retorno do if reatribuo a variável customerId pra stripeCustomer.id (Pra ela sempre ter um id)
+* Por fim no stripeCheckoutSession na propriedade customer: uso 'customerId'
 
-## Commit 
-* Instalação do axios
-* Dentro de ./services crio o arquivo api.ts 
-* No componente SubscribeButton faço a chamada POST para API '/subscribe'
-* Pegando no response o { sessionId }
-* Dentro de ./services crio um arquivo stripe-js.ts (que é a integração do browser com stripe no front-end)
-* Instalação da biblioteca @stripe/stripe-js e importo { loadStripe }
-* Exporto uma função getStripeJs que faz a conexão com stripe passando a chave publica salva no .env
-* No SubscribeButton importo a função getStripeJs e atribuo a variável stripe
-* Uso o método redirectiToCheckout passando por parâmetro o sessionId que vem do back-end
+
 
 
