@@ -1,32 +1,32 @@
-# Salvando dados do evento
+# Ouvindo mais eventos
 
-# Commit 
-* Dentro de um try catch, coloco um switch no type do evento para cada tipo de evento fazer uma ação 
-diferente, porque na variável relevantEvents estou dizendo quais evento eu quero, se não for oque eu 
-espero retorne um erro. OSERVAÇÃO: "Eu não coloquei status de erro na resposta porque estou retornando
-pro stripe, e ai ele vai pensa que a requisição deu errado e vai fica re-tentando a requisição.
-* Crio uma pasta _lib (_lib porque toda pasta ou arquivo dentro de 'pages' ou 'api' ele vai se tornar
-rotas automaticamente dentro do Next.js). E dentro crio um arquivo manageSubscription.
-* manageSubscription é uma função que recebe subscritionId: string, e customerId: string
-* Oque manageSubscription vai fazer é salvar essas informações no banco de dados.
-## Objetivo principal
-* Buscar o usuário no banco do faunaDB com o ID { customerId } <- esse customerId não é a ref, ele 
-é o stripe_customer_id.
-* Então para buscar stripe_customer_id eu preciso criar um index (assim é possivel buscar o usuário pelo
-id dele salvo dentro do stripe)
-* Depois de buscar o usuário dentro do stripe, tenho que salvar os dados da subscription no banco faunaDB
-* Criar uma nova Coleção chamada subscriptions que vai salvar as sub-inscrições dos usuários
-* Utilizar o método assíncrono await manageSubscription passando o id da subscription(que está 
-dentro de event) OBSERVAÇÃO: Todos os eventos do stripe terão essa tipagem 'Event', mas como no checkout
- session é um evento específico que eu quero, vou fazer o seguinte pra saber tudo oque ele pode retornar:
- ![Imgur](https://imgur.com/KZVUWCa.png)
-## Em manageSubscription vou buscar os dados do usuário
-* Buscar apenas a ref do usuário (porque a forma que o faunaDB faz relacionamento entre as coleções 
-é via ref)
-* E como o fauna cobra cada operação no banco, e eu quero evitar cobranças de dados que não estou utilizando,
-e dizer quais campos eu quero com q.Select('ref').
-* O webhook envia apenas o id da subscription, e para obter todos os dados da subscription é preciso
-stripe.subscriptions.retrive passando o subscriptionId
-* Agora criar uma coleção subscriptions passando data: subscription.
-* Para não salvar a subscription inteira no banco, eu salvo apenas os dados que vou utilizar na variável
-subscriptionData
+## Resumo
+* Agora que já conseguimos ouvir quando um usuário faz uma compra pelo stripe, a gente precisa
+ouvir algums outros eventos que o stripe nos envia a cerca da parte de subscription
+* Exemplo se o usuário acessar la pelo stripe a conta dele e cancelar a inscrição, o stripe vai
+nos avisa através de um webhook que essa inscrição foi cancelada, ou se o cartão do usuário não tem
+crédito.
+* Tem 3 eventos que são imprescindíveis a gente ouvir a respeito subscription de um usuário que são: <br>
+      - 'customer.subscription.created' <br>
+      - 'customer.subscription.updated' <br>
+      - 'customer.subscription.deleted' <br>
+
+## Commit
+* No switch vamo ouvir esses 3 eventos dentro da mesma lógica
+* Pegar a subscription dentro de <strong>event.data.object</strong> as <strong>Stripe.Subscription</strong>
+* Executar o método await saveSubscription passando subscription.id, subscription.customer.toString
+* A função saveSubscription a única coisa que ela está fazendo é buscar o usuário e salvar a subscription no banco. Mas agora tem 2 casos de quando a subscrition é atualizada ou deletada, eu não quero que ele crie um novo, mas atualize o já existente. Só vou criar uma nova subscription no bacno de dados quando eu estiver com evento <strong>'customer.subscription.created'</strong> ou no <strong>'chechout.session.completed'</strong>
+* Então no saveSubscription adiciono um novo parametro pra ela chamado createAction = false por padrão.
+* Verifico antes de criar se estou com uma createAction
+* Se eu estou com createAction eu faço a query criando uma subscription
+* Senão eu faço um Replace para atualizar a subscription existente
+## Existem dois métodos para atualizar um registro dentro do fauna
+* Replace = substituo toda informação no registro daquela ref
+* Update = consigo atualizar uma informação naquele registro
+# 
+* Crio um novo index subscription_by_id pra conseguir buscar pelo id dela
+* O replace precisa saber qual subscription ele precisa atualizar, e o parametro que ele recebe é ref
+* Pra buscar apenas a ref e evitar ser cobrado pelo fauna em buscar dados que não vamos usar, eu uso q.Select para selecionar somente a ref
+* como segundo parametro do replace eu passo quais dados eu quero atualizar
+* Entao esse o if verifica se tenho um createAction eu crio e salvo no banco, senao eu do um replace e troco todos os dados
+* Agora eu devo receber um webhook avisando se o usuário cancelou a subscription e no fauna mudar o status pra de active pra canceled
