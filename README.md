@@ -12,7 +12,7 @@ que ele mandar
 # Commit
 * Importar do Node { Readble } de 'stream' (Readble significa algo que vamos ler aos poucos)
 * No momento que recebermos essa requisição vamo utilizar esse Readble para ler, para isso criei uma nova função chamada buffer()
-que ela converte essa Readble stream em um objeto
+que ela converte essa Readble stream em um objeto.<br>
 ![Imgur](https://imgur.com/PXlhLGw.png)
 * Essa função buffer recebe uma readble (que é a stream)
 * Ela cria um array chamado chunks (que são os pedaços da stream)
