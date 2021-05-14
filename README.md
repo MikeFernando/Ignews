@@ -20,7 +20,7 @@ que ela converte essa Readble stream em um objeto
 * Essa sintaxe de for await é uma sintaxe bem nova, ela aguarda novos chunk e vai dando um push(empurrar) ele pra dentro do array de chunks
 * No final ele concatena todos os chunk e converte em um Buffer
 #
-* Na api de next crio uma variável buf passando await nome da função buffer(passando a req)
+* Na api de next crio uma variável buf passando await buffer(passando a req)
 * Agora dentro desse buf temos todos os dados da req
 * Uma coisa muito importante é exportar uma config: 👇<br>
 ![Imgur](https://imgur.com/HrwYOeA.png)
