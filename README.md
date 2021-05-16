@@ -1,5 +1,7 @@
 # Ouvindo mais eventos
 
+![](https://imgur.com/teFKdXi.gif)
+
 ## Resumo
 * Agora que já conseguimos ouvir quando um usuário faz uma compra pelo stripe, a gente precisa
 ouvir algums outros eventos que o stripe nos envia a cerca da parte de subscription
