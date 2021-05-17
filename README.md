@@ -1,3 +1,6 @@
+# Página: Posts
+
+![](https://imgur.com/xBDsuIz.png) <br>
 # Consumindo API do Prismic
 
 ## Commit
@@ -18,15 +21,4 @@ parâmetro passa um objeto com várias informações passando: <br>
 * Retornar de getStaticProps algumas props.<br>
 ![Imgur](https://imgur.com/tyrv8rH.png)
 
-# Página: Posts
-
-![](https://imgur.com/xBDsuIz.png)
-
-## Resumo
-* Criei uma conta no Prismic.io para utilizar CMS.
-* Configurei o CMS prismic com alguns posts
-
-## Commit
-* Criei uma pasta ./posts com arquivo index e style
-* Criei a estrutura stática html da página posts e estilizei com css modules do next.js
 
