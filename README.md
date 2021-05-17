@@ -3,7 +3,7 @@
 ![](https://imgur.com/xBDsuIz.png)
 
 ## Resumo
-* Criei uma conta
+* Criei uma conta no Prismic.io para utilizar CMS.
 * Configurei o CMS prismic com alguns posts
 
 ## Commit
