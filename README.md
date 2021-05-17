@@ -1,6 +1,6 @@
 # Ouvindo mais eventos
 
-![Imgur](https://imgur.com/xBDsuIz.png)
+![](https://imgur.com/xBDsuIz.png)
 
 ## Resumo
 * Agora que já conseguimos ouvir quando um usuário faz uma compra pelo stripe, a gente precisa
