@@ -1,4 +1,4 @@
-# Navegação no menu
+# Componente: ActiveLink
 
 ## Link
 * Sem o componente Link do Next por volta da &lt;a href=""&gt; o problema é que toda a página será carregada do zero,
