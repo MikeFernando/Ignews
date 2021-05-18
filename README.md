@@ -7,3 +7,7 @@
 * Link também tem uma propriedade chamada prefecth que basicamente faz um pré carregamento para que quando 
 clicar no Link os dados já estejam em tela.
 ![Imgur](https://imgur.com/d8SDLeF.png)
+
+## useRouter
+* A informação que utilizei de dentro dele é asPath (retorna a rota que está ativa)
+
