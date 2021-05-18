@@ -1,41 +1,32 @@
-# Componente: ActiveLink
+# Página: Post
 
-## Link
-* Sem o componente Link do Next por volta da &lt;a href=""&gt; o problema é que toda a página será carregada do zero,
- obtendo apenas o conceito de (SSR) e perdendo o conceito de SPA.
-* Link permite navegar entre páginas carregando apenas o necessário.
-* Link também tem uma propriedade chamada prefecth que basicamente faz um pré carregamento para que quando 
-clicar no Link os dados já estejam em tela.
-![Imgur](https://imgur.com/d8SDLeF.png)
+## Commit
+* Criar um arquivo dentro da pasta ./posts chamado [slug].tsx (Quando uma página é dinâmica eu posso
+ nomear o arquivo e colocar [ ] por volta, assim todos posts vão para esse params)
+* Na páginas de posts trocar as ancoras por Link e puxar os href pro Link.  &lt;Link href={`/posts/${post.slug}`}&gt;
+* Agora ao clicar no post já fica disponvel o slug na rota. E consigo utilizar esse slug para fazer 
+o carregamento do post.
 
-## asPath
-* Dentro de useRouter existe a informação asPath
-* Ela mostra que rota está ativa
-* Para alternar o CSS da página ativa 'Home' e 'Posts' usando asPath
-* Poderia ser assim: 👇<br>
-![Imgur](https://imgur.com/7vGsJ7r.png)<br>
-* Ficando assim: 👇<br>
-![Imgur](https://imgur.com/V95sxTA.gif)<br>
-* Só que toda vez que tiver um Link na aplicação eu precisar fazer isso vai se torna muito trabalhoso.
-* Então automatizei os Links criando um componente.
+## Detalhes importantes
+* No [slug].tsx pra carregar o conteúdo do post, eu posso utilizar o getStaticSiteProps (SSG) ou o 
+getServerSideProps (SSR).
+* Pra acessar o conteúdo total do post o usuário deve ester logado e ter uma assinatura ativa, se eu 
+gerar essa página de forma estática ela não vai estar protegida, porque toda página estática vai estar
+disponível pra todos usuários.
 
-## Componente ActiveLink
-* Retorna um Link de next/link
-* Tipagem ActiveLinkProps contento: children, activeClassName<br>
-      - <strong>children</strong>: ReactElement (porque eu quero receber UM e apenas UM elemento react, no caso a tag &lt;a&gt;).<br>
-      - <strong>activeClassName</strong>: string; (qual que é a className que eu quero colocar quando o link estiver ativo)<br>
-* Para que o componente ActiveLink tenha todas as propriedades que um Link tem, preciso extender LinkProps na tipagem ActiveLinkProps.
-* Desestruturar { children, activeClassName, ...rest} salvando o restante das propriedades nessa variável ...rest
-* Passando elas pra dentro do Link
+## Commit
+* Então utilizei getServerSideProps({ req }) passando a requisição pra indentificar o usuário.
+* variável session = getSession({ req }) pra ter acesso ao token do usuário.
+* Para conseguir carregar o conteúdo do post precisa saber qual post carregar, essa informação a 
+gente consegue através do slug.
+* Tem um parâmetro chamado params, e pego o slug de dentro dele { slug } = params
+* Busco o cliente do prismic passando o req como parâmetro
+* Crio uma variável response e busco lá do prismic o getByUID('post', slug) passando o tipo do documento
+ que quero buscar, e o slug em si. Como a tipagem dele pode ser um Array ou não, eu tipo ele como String 
+ porque não utilizei o ...(spread operator) só terei um único slug, e tipo ele como String, e como terceiro 
+ parâmetro eu posso passar uma série de informações, mas passei um objeto vazio {}.
+* Crio uma variável posts para fazer a formatação dos dados, parecido com a formatação que fiz no index.
+* Depois de formatado crio uma interface pra tipar os dados e passo as props pra função Post montar o html em tela.
+* Estilização do post.module.scss
 
-## Aplicando asPath e aplicando o CSS da página ativa
-* Importar asPath de useRouter
-* Criar uma variável className = asPath === rest.href<br>
-? classNameActive<br>
-: ' '<br>
-* Porém essa className não vai no Link, ela precisa ir na tag &lt;a&gt; e não temos a ancora dentro 
-do componente, so temos o { children}
-* Então utilizei cloneElement do React, porque consigo clonar um elemento modificando ou adicionando coisas nele.<br>
-![Imgur](https://imgur.com/ZGitxfn.png)
-* Tendo o mesmo resultado, porém de forma automatizada.<br>
-![Imgur](https://imgur.com/V95sxTA.gif)<br>
+
