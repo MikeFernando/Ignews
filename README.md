@@ -1,19 +1,25 @@
 # Consumindo API do Prismic
 
-## Commit
-* Intalação do @prismicio/client que é o client do prismic para intergrar com javascript
-* Importar Prismic de @prismicio/client e exportar uma função getPrismicClient
-* Dentro getPrismicClient passa para o Primsmic.client o process.env.PRISMIC_ENDPOINT, e no segundo 
-parâmetro passa um objeto com várias informações passando: <br>
-      - accessToken: proccess.env.PRISMIC_ACCESS_TOKEN
-      - req OBSERVAÇÃO: O Prismic recomenda que quando a gente está fazendo uma chamada pra api serverSide
-      que passemos o 'req' como parâmetro pra ele
+## Formatação de dados
+Quando buscamos dados de uma api ou serviços de terceiros é muito comum as vezes esses dados NÃO virem 
+no formato que a gente precisa, e também é comum a gente deixa pra formata esse formato na interface.<br>
+Se eu passar os dados que estão sendo carregados no serverSide para formatar eles na interface, oque vai
+acontecer é que esses dados serão formatados no front-end e toda vez que alguem acessar essa página.<br> 
+Agora se eu formatar esses dados antes de passar isso para o html o front-end em si, esses dados serão
+formatados uma única vez
+## Dica
+Sempre faça na grande maioria das vezes a formatação dos dados (datas, textos, preços) logo após você
+consumir esses dados da api.
 
-* Dentro de ./posts carregar os a listagem de posts via (SSG) porque quero ela estática
-* prismic = importar getPrismicClient lá do services
-* await prismic.query para buscar todos documentos, e como podemos ter vários utilizo array.
-* Para buscar por campos específicos ele usa Predicates
-* Como segundo parâmetro passo um obejto com fetch, qeu são quais dados eu quero buscar dessa publicação
-(título, e contúdo), e pageSize: 100 (que é quanto posts eu quero trazer). 
-* Retornar de getStaticProps algumas props.<br>
-![Imgur](https://imgur.com/tyrv8rH.png)
+## Commit
+* Criei uma variável posts pegando todos results e percorrendo cada um deles com map, e retornar um
+novo objeto com os dados já formatados.
+* Instalar prismic-dom (essa lib converte os formatos do prismic para  ou pra textos, ficando mais fácil acessar 
+os dados)<br>
+![Imgur](https://imgur.com/v1XxN3h.png)
+* Passar posts no retorno das props { posts }
+* Tipar em uma interface os posts
+* Percorrer os posts com map retornando pro html os dados formatados <br>
+![Imgur](https://imgur.com/zPFGNyh.png)
+
+
