@@ -1,7 +1,5 @@
 # Página: Posts
-
-![](https://imgur.com/xBDsuIz.png) <br>
-# Consumindo API do Prismic
+![Imgur](https://imgur.com/zPFGNyh.png)
 
 ## Formatação de dados
 Quando buscamos dados de uma api ou serviços de terceiros é muito comum as vezes esses dados NÃO virem 
@@ -23,4 +21,3 @@ os dados)<br>
 * Passar posts no retorno das props { posts }
 * Tipar em uma interface os posts
 * Percorrer os posts com map retornando pro html os dados formatados <br>
-![Imgur](https://imgur.com/zPFGNyh.png)
