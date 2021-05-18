@@ -1,3 +1,6 @@
+# Página: Posts
+
+![](https://imgur.com/xBDsuIz.png) <br>
 # Consumindo API do Prismic
 
 ## Formatação de dados
@@ -21,5 +24,3 @@ os dados)<br>
 * Tipar em uma interface os posts
 * Percorrer os posts com map retornando pro html os dados formatados <br>
 ![Imgur](https://imgur.com/zPFGNyh.png)
-
-
