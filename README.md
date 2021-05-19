@@ -24,4 +24,5 @@ todo o conteudo completo.
 * E isso não deve ser feito no getStaticSiteProps porque nele não temos os dados do usuário no session, 
 porque não recebemos a req.
 * Então uso o useEffect do react na função PostPreview verificando se tem uma session.activeSubscription
-e redirecionado o usuário pra home se não for um assinante. 
+e redirecionado o usuário pra home se não for um assinante. <br>
+![Imgur](https://imgur.com/LZkMDJH.png)
