@@ -1,27 +1,31 @@
-# Página: Preview do post
+# Gerando previews estáticos
 
-## Resumo
-* Gerar o preview do post pra quando a pessoa que não estiver assinando o conteído da aplicação poder
-ver uma pequena parte do conteúdo.
-* O conteúdo do preview vai ser utilizado principalmente pelos mecanismo de busca, pra que eles 
-consigam indexar os posts da aplicação, mesmo que sejam posts que só podem ser acessados por quem assina a 
-aplicação.
-* Então quem acessar o app e não estiver assinando ou não tiver logado, vai ver apenas um trecho
-do começinho do post (preview) e vai ter a opção de assinar.
+## Pontos importantes
+* O Next tem alguns comportamentos nessa parte de geração de site estáticas
+### Quais são esse comportamentos?
+* 1º forma: Gerar as páginas estáticas durante a build (utilizado quando não tem muitas páginas estáticas para 
+serem contruídas, tipo uma categoria com 30), assim quando os usuários acessarem as páginas já estarão carregadas.
+* 2º forma: Gerar a página estática no primeiro acesso (utilizado quando um recurso tem muitas quantidade, tipo 
+uma produto com 1000 items) melhor deixa pra carregar conforme as pessoas forem acessando.
+* 3º forma: Metade de cada um (os 30 produtos mais acessados do site gero na build) e os restante deixo pra
+carregar conforme forem acessando.
+
+## getStaticPaths
+* Esta totalmente ligada a essa terceira forma de gerar páginas estáticas.
+* Paths é um Array passando quais são os caminhos ou seja quais funcionalidades eu quero gerar na build do next.
+* Se deixar Paths vazio, ele será carregado conforme os usuários acessarem as páginas.
+* Também poderia fazer uma chamada aos produtos mais quentes ou acessados do meu site, passando dentro 
+de paths um obejto com o params e dentro slug do produto.
+* getStaticPaths só existem em arquivos com rotas dinâmicas [...params].tsx
+* Fallback pode receber 3 valores: <br>
+      - true = ta dizendo que se alguem acessar um post que ainda não foi gerado de forma estática, eu 
+      quero que você carregue o conteúdo desse post pelo lado do browser. (ele tem 2 problemas muito ruim, 1º ele 
+      causa um layout-shift carrega a página sem os dados e depois que a chamada termina é mostrado, 2º ele 
+      não ajuda os mecanismos de busca pegar os dados para indexar)<br>
+      - false = se o post não foi gerado de forma estática ainda, ele vai retornar um 404 (not Found) e só.<br>
+      - 'blocking' = ele é parecido com o true porem vai carregar os dados no lado do servidor e não do client.
 
 ## Commit
-* Crio a pasta ./preview dentro da pasta posts
-* Como a estrutura é muito parecida e vou utilizar quase tudo, copio o slug e colo na pasta preview
-* Oque muda é que o PostPreview não ira utilzar (SSR) ele vai ser um post estático. Porque o preview 
-não vai verificar se o usuário tem uma assinatura ativa ou não, sendo assim toda página que é publica 
-pode ser estática.
-* Para carregar a página de preview crio uma função getStaticPath.
-* Removendo parte do conteúdo do post, dando um splice(0, 3) no RickText do content.
-* Na div onde mostra o conteúdo coloco 2 className. (pra isso basta usar `${postContetn}, ${previewContent}`).
-* Criar div com link de continuar lendo.
-* Se a pessoa esta logada ela não precisa ver o preview do post e sim que ela veja o post original com 
-todo o conteudo completo.
-* E isso não deve ser feito no getStaticSiteProps porque nele não temos os dados do usuário no session, 
-porque não recebemos a req.
-* Então uso o useEffect do react na função PostPreview verificando se tem uma session.activeSubscription
-e redirecionado o usuário pra home se não for um assinante. 
+* Definir um revalidate no retorno de getStaticProps
+
+![Imgur](https://imgur.com/QQeZ8Uv.png)
