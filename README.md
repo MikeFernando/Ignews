@@ -10,7 +10,7 @@ e já podendo assinar via cartão de crédito e ficar por dentro de tudo oque ac
 
   # Sobre 
   <h3> Projeto fantástico porque é possível mostrar pra onde o Front-end está caminhando sendo cada vez mais
-  responsável pelos dados que exibe e não depender sempre do back-end pra fazer coisas que não é respnsabilidade dele.</h3>
+  responsável pelos dados que exibe e não depender sempre do back-end pra fazer coisas que não é responsabilidade dele.</h3>
 <br><br>
 
   # Tabela de Conteúdo
