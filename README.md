@@ -1,31 +1,72 @@
-# Gerando previews estáticos
+<h1 align="center">Ignews</h1>
 
-## Pontos importantes
-* O Next tem alguns comportamentos nessa parte de geração de site estáticas
-### Quais são esse comportamentos?
-* 1º forma: Gerar as páginas estáticas durante a build (utilizado quando não tem muitas páginas estáticas para 
-serem contruídas, tipo uma categoria com 30), assim quando os usuários acessarem as páginas já estarão carregadas.
-* 2º forma: Gerar a página estática no primeiro acesso (utilizado quando um recurso tem muitas quantidade, tipo 
-uma produto com 1000 items) melhor deixa pra carregar conforme as pessoas forem acessando.
-* 3º forma: Metade de cada um (os 30 produtos mais acessados do site gero na build) e os restante deixo pra
-carregar conforme forem acessando.
+<p align="center">Esta é uma aplicação construida em Next.js onde o usuário pode criar uma conta apenas autorizando o Github a fornecer dados para uma autenticação, 
+e já podendo assinar via cartão de crédito e ficar por dentro de tudo oque acontece no mundo do React.</p>
 
-## getStaticPaths
-* Esta totalmente ligada a essa terceira forma de gerar páginas estáticas.
-* Paths é um Array passando quais são os caminhos ou seja quais funcionalidades eu quero gerar na build do next.
-* Se deixar Paths vazio, ele será carregado conforme os usuários acessarem as páginas.
-* Também poderia fazer uma chamada aos produtos mais quentes ou acessados do meu site, passando dentro 
-de paths um obejto com o params e dentro slug do produto.
-* getStaticPaths só existem em arquivos com rotas dinâmicas [...params].tsx
-* Fallback pode receber 3 valores: <br>
-      - true = ta dizendo que se alguem acessar um post que ainda não foi gerado de forma estática, eu 
-      quero que você carregue o conteúdo desse post pelo lado do browser. (ele tem 2 problemas muito ruim, 1º ele 
-      causa um layout-shift carrega a página sem os dados e depois que a chamada termina é mostrado, 2º ele 
-      não ajuda os mecanismos de busca pegar os dados para indexar)<br>
-      - false = se o post não foi gerado de forma estática ainda, ele vai retornar um 404 (not Found) e só.<br>
-      - 'blocking' = ele é parecido com o true porem vai carregar os dados no lado do servidor e não do client.
+ ![Imgur](https://imgur.com/04ciABL.gif)
+<br><br>
 
-## Commit
-* Definir um revalidate no retorno de getStaticProps
+<hr>
 
-![Imgur](https://imgur.com/QQeZ8Uv.png)
+  # Sobre 
+  <h3> Projeto fantástico porque é possível mostrar pra onde o Front-end está caminhando sendo cada vez mais
+  responsável pelos dados que exibe e não depender sempre do back-end pra fazer coisas que não é respnsabilidade dele.</h3>
+<br><br>
+
+  # Tabela de Conteúdo
+  ## Fundamentos do Next.js
+  ###  Estrutura da aplicação <br>
+    - Entendendo todo fluxo da aplicação
+    - Instalando NextJS
+    - Instalando Typescript
+    - Exportando assets do Figma
+    - Definindo estilos globais
+  ### Componentes e páginas
+    - Criando componentes
+    - Estilizando via module do Next
+  ### Integração com API
+    - Configurando Stripe
+    - Consumindo API do Stripe (SSR)
+    - Static Site Generation (SSG)
+  
+  ## Back-end no front-end
+  ### API Routes no Next.js
+    - API routes no Next.js
+    - Estratégias de autenticação
+    - Parametrização nas rotas
+    - Autenticação com Next Auth
+  ### Usando FaunaDB
+    - Configurando FaunaDB
+    - Configurações no Github
+    - Salvando usuário no banco
+    - Chave privada do JWT
+    - Verificando usuário duplicado
+  ### Pagamentos no Stripe
+    - Gerando sessão de checkout
+    - Redirecionando para o Stripe
+    - Evitando duplicação no Stripe
+  ### Ouvindo webhooks
+    - Webhooks do Stripe
+    - Ouvindo eventos do Stripe
+    - Salvando dados do evento
+  ## Front-end JAMStack
+  ### Trabalhando com CMS
+    - Configurando Prismic CMS
+    - Consumindo API do Prismic
+  ### Páginas estáticas
+    - Validando assinatura ativa
+    - Gerando previews estáticos
+
+
+   * [Sobre](#Sobre)  
+
+   * [Tabela de Conteudo](#tabela-de-conteudo)
+   * [Tecnologias](#tecnologias)
+      * [NextJS](#pre-requisitos)
+      * [ReactJS](#combo)
+      * [Javascript](#remote-files)
+      * [Typescript](#multiple-files)
+      * [Stripe](#pre-requisitos)
+      * [FaunaDB](#local-files)
+
+<!--te-->
