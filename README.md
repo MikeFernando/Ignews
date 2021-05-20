@@ -10,12 +10,13 @@ e já podendo assinar via cartão de crédito e ficar por dentro de tudo oque ac
 
   # Sobre 
   <h3> Projeto fantástico porque é possível mostrar pra onde o Front-end está caminhando sendo cada vez mais
-  responsável pelos dados que exibe e não depender sempre do back-end pra fazer coisas que não é responsabilidade dele.</h3>
+  responsável pelos dados que exibe e não depender sempre do back-end pra fazer coisas que não é respnsabilidade dele.</h3>
 <br><br>
 
   # Tabela de Conteúdo
-  ## Fundamentos do Next.js
-  ###  Estrutura da aplicação <br>
+  <h1 align="center"> Fundamentos do Next.js</h1>
+
+  ##  Estrutura da aplicação <br>
     - Entendendo todo fluxo da aplicação
     - Instalando NextJS
     - Instalando Typescript
@@ -29,7 +30,8 @@ e já podendo assinar via cartão de crédito e ficar por dentro de tudo oque ac
     - Consumindo API do Stripe (SSR)
     - Static Site Generation (SSG)
   
-  ## Back-end no front-end
+  <h1 align="center"> Back-end no front-end</h1>
+
   ### API Routes no Next.js
     - API routes no Next.js
     - Estratégias de autenticação
@@ -49,7 +51,8 @@ e já podendo assinar via cartão de crédito e ficar por dentro de tudo oque ac
     - Webhooks do Stripe
     - Ouvindo eventos do Stripe
     - Salvando dados do evento
-  ## Front-end JAMStack
+  <h1 align="center"> Front-end JAMStack</h1>
+  
   ### Trabalhando com CMS
     - Configurando Prismic CMS
     - Consumindo API do Prismic
