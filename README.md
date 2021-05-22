@@ -63,7 +63,6 @@ e já podendo assinar via cartão de crédito e ficar por dentro de tudo oque ac
 
    * [Sobre](#Sobre)  
 
-   * [Tabela de Conteudo](#tabela-de-conteudo)
    * [Tecnologias](#tecnologias)
       * [NextJS](#pre-requisitos)
       * [ReactJS](#combo)
