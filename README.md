@@ -44,7 +44,7 @@
 ## ⚙️ Instalação
 ```
 # Abra um terminal e copie este repositório com o comando
-$ git clone https://github.com/MikeFernando/ignews.git
+$ git clone https://github.com/MikeFernando/Ignews.git
 ```
 
 ```
