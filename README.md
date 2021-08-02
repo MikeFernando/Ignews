@@ -1,74 +1,84 @@
-<h1 align="center">Ignews</h1>
+# Ignews 💛🚀
 
-<p align="center">Esta é uma aplicação construida em Next.js onde o usuário pode criar uma conta apenas autorizando o Github a fornecer dados para uma autenticação, 
-e já podendo assinar via cartão de crédito e ficar por dentro de tudo oque acontece no mundo do React.</p>
+&nbsp;
 
- ![Imgur](https://imgur.com/04ciABL.gif)
-<br><br>
+![mock1](https://user-images.githubusercontent.com/71772559/113495090-3e529600-94c5-11eb-953c-53ab4f71fc15.png)
 
-<hr>
+## 📚 Informações sobre o projeto
 
-  # Sobre 
-  <h3> Projeto fantástico porque é possível mostrar pra onde o Front-end está caminhando sendo cada vez mais
-  responsável pelos dados que exibe e não depender sempre do back-end pra fazer coisas que não é respnsabilidade dele.</h3>
-<br><br>
+* Esse projeto foi desenvolvido durante um dos capitulos do Ignite da Rocketseat! A ideia era desenvolver do um blog pago onde o usuário loga usando o GitHub e paga sua inscrição usando o Stripe. Usuários que não possuem a inscrição, só conseguem ver alguns parágrafos iniciais do post, orefecendo a inscrição logo abaixo.
 
-  # Tabela de Conteúdo
-  <h1 align="center"> Fundamentos do Next.js</h1>
+&nbsp;
 
-  ##  Estrutura da aplicação <br>
-    - Entendendo todo fluxo da aplicação
-    - Instalando NextJS
-    - Instalando Typescript
-    - Exportando assets do Figma
-    - Definindo estilos globais
-  ### Componentes e páginas
-    - Criando componentes
-    - Estilizando via module do Next
-  ### Integração com API
-    - Configurando Stripe
-    - Consumindo API do Stripe (SSR)
-    - Static Site Generation (SSG)
-  
-  <h1 align="center"> Back-end no front-end</h1>
+## 💻 O que tem no projeto?
 
-  ### API Routes no Next.js
-    - API routes no Next.js
-    - Estratégias de autenticação
-    - Parametrização nas rotas
-    - Autenticação com Next Auth
-  ### Usando FaunaDB
-    - Configurando FaunaDB
-    - Configurações no Github
-    - Salvando usuário no banco
-    - Chave privada do JWT
-    - Verificando usuário duplicado
-  ### Pagamentos no Stripe
-    - Gerando sessão de checkout
-    - Redirecionando para o Stripe
-    - Evitando duplicação no Stripe
-  ### Ouvindo webhooks
-    - Webhooks do Stripe
-    - Ouvindo eventos do Stripe
-    - Salvando dados do evento
-  <h1 align="center"> Front-end JAMStack</h1>
-  
-  ### Trabalhando com CMS
-    - Configurando Prismic CMS
-    - Consumindo API do Prismic
-  ### Páginas estáticas
-    - Validando assinatura ativa
-    - Gerando previews estáticos
+* Integração com o Prismic CMS, para trabalhar com toda a parte do sistema do blog.
+* Integração com o Stripe para a parte dos pagamentos das inscrições.
+* Integração com o NextAuth para a parte do login com o Github.
+* Sistema de verificação de assinatura, o conteúdo exibido varia entre usuários com/sem assinatura paga.
+* Dados são salvos no bando do FaunDb.
+* Uso do sistema estático do Next.js, onde os posts são mantidos no cache para um melhor carregamento.
+
+&nbsp;
+
+![mock2](https://user-images.githubusercontent.com/71772559/113495232-84f4c000-94c6-11eb-81fe-4dfb37d29e44.png)
+
+&nbsp;
+
+## 🛠️ Tecnologias/Ferramentas ultilizadas
+
+* [React](https://pt-br.reactjs.org/E)
+* [Next.js](https://nextjs.org/)
+* [NextAuth](https://next-auth.js.org/)
+* [Prismic CMS](https://prismic.io/)
+* [Stripe](https://stripe.com/en-br)
+* [Fauna](https://fauna.com/)
+
+&nbsp;
+
+<img src="https://user-images.githubusercontent.com/71772559/113495413-dc476000-94c7-11eb-9d95-d3a301fc989b.gif" width="100%" />
+
+&nbsp;
+
+## ⚙️ Instalação
+```
+# Abra um terminal e copie este repositório com o comando
+$ git clone https://github.com/GBDev13/ignews.git
+```
+
+```
+# Acesse a pasta da aplicação
+$ cd ignews
+
+# Crie um arquivo .env.local e coloque as variaveis
+# de ambiente baseado no arquivo .env.example que
+# se encontra na pasta moveit
+
+# Instale as dependências
+$ yarn
+
+# Inicie a aplicação
+$ yarn start
+
+```
+
+&nbsp;
+
+### 🔗 Link para o projeto online
 
 
-   * [Sobre](#Sobre)  
+[Ignews](https://ignews-umber.vercel.app/)
+<p><strong>Aviso</strong>, o Stripe possui um token de teste que dura apenas alguns dias e não irei atualizar o mesma quando vencer, então não será testar o sistema de compra.</p>
 
-   * [Tecnologias](#tecnologias)
-      * [NextJS](#pre-requisitos)
-      * [ReactJS](#combo)
-      * [Javascript](#remote-files)
-      * [Typescript](#multiple-files)
-      * [Stripe](#pre-requisitos)
-      * [FaunaDB](#local-files)
+&nbsp;
 
-<!--te-->
+## 📝 Licença
+
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo de [LICENÇA](https://github.com/GBDev13/ignews/blob/main/LICENSE) para detalhes.
+
+
+---
+
+<p align="center">Feito com 💙 por Gabriel Borges</p>
+
+
