@@ -62,15 +62,6 @@ $ yarn start
 
 ```
 
-&nbsp;
-
-### 🔗 Link para o projeto online
-
-
-[Ignews](https://ignews-umber.vercel.app/)
-<p><strong>Aviso</strong>, o Stripe possui um token de teste que dura apenas alguns dias e não irei atualizar o mesma quando vencer, então não será testar o sistema de compra.</p>
-
-&nbsp;
 
 ## 📝 Licença
 
