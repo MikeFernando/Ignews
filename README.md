@@ -47,6 +47,7 @@
 $ git clone https://github.com/MikeFernando/Ignews.git
 ```
 
+
 ```
 # Acesse a pasta da aplicação
 $ cd ignews
