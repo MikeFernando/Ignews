@@ -4,7 +4,7 @@
 
 ![mock1](https://user-images.githubusercontent.com/71772559/113495090-3e529600-94c5-11eb-953c-53ab4f71fc15.png)
 
-## 📚 Informações sobre o projeto
+## 📚 Informações sobre o projeto.
 
 * Esse projeto foi desenvolvido durante um dos capitulos do Ignite da Rocketseat! A ideia era desenvolver do um blog pago onde o usuário loga usando o GitHub e paga sua inscrição usando o Stripe. Usuários que não possuem a inscrição, só conseguem ver alguns parágrafos iniciais do post, orefecendo a inscrição logo abaixo.
 
